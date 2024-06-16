@@ -1,5 +1,6 @@
 "use client";
 import { Project } from "@/types/public_monad_sheet";
+import Link from "next/link";
 
 const ProjectList = ({ data }: { data: Project[] }) => {
     return (
@@ -11,19 +12,19 @@ const ProjectList = ({ data }: { data: Project[] }) => {
                     <p className="text-sm">Native: {item.native ? "Yes" : "No"}</p>
                     <div className="flex flex-wrap gap-3 mt-2">
                         {!!item.x && (
-                            <a href={item.x} target="_blank" className="text-blue-400 hover:text-blue-600">
+                            <Link href={item.x} target="_blank" className="text-blue-400 hover:text-blue-600">
                                 X
-                            </a>
+                            </Link>
                         )}
                         {!!item.website && (
-                            <a href={item.website} target="_blank" className="text-blue-400 hover:text-blue-600">
+                            <Link href={item.website} target="_blank" className="text-blue-400 hover:text-blue-600">
                                 Website
-                            </a>
+                            </Link>
                         )}
                         {!!item.discordTg && (
-                            <a href={item.discordTg} target="_blank" className="text-blue-400 hover:text-blue-600">
+                            <Link href={item.discordTg} target="_blank" className="text-blue-400 hover:text-blue-600">
                                 Discord/TG
-                            </a>
+                            </Link>
                         )}
                     </div>
                     <p className="text-sm">
