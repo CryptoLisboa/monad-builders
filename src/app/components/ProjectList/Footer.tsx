@@ -11,33 +11,21 @@ export default function ProjectListFooter({ item }: { item: Project }) {
     return (
         <CardFooter className="mt-4 flex space-x-4">
             {item.x && (
-                <NextUILink color="primary" href={item.x} target="_blank" as={Link} className="text-blue-600 underline">
-                    <FaXTwitter style={{ color: "#000000" }} />
+                <NextUILink color="primary" href={item.x} target="_blank" as={Link}>
+                    <FaXTwitter className="text-2xl lg:text-3xl" style={{ color: "#000000" }} />
                 </NextUILink>
             )}
             {item.website && (
-                <NextUILink
-                    color="primary"
-                    href={item.website}
-                    target="_blank"
-                    as={Link}
-                    className="text-blue-600 underline"
-                >
-                    <FiGlobe style={{ color: "#0096D6" }} />
+                <NextUILink color="primary" href={item.website} target="_blank" as={Link}>
+                    <FiGlobe className="text-2xl lg:text-3xl" style={{ color: "#0096D6" }} />
                 </NextUILink>
             )}
             {item["discord/tg"] && (
-                <NextUILink
-                    color="primary"
-                    href={item["discord/tg"]}
-                    target="_blank"
-                    as={Link}
-                    className="text-blue-600 underline"
-                >
+                <NextUILink color="primary" href={item["discord/tg"]} target="_blank" as={Link}>
                     {isDiscord ? (
-                        <FaDiscord style={{ color: "#5865F2" }} />
+                        <FaDiscord className="text-2xl lg:text-3xl" style={{ color: "#5865F2" }} />
                     ) : (
-                        <FaTelegramPlane style={{ color: "#0088CC" }} />
+                        <FaTelegramPlane className="text-2xl lg:text-3xl" style={{ color: "#0088CC" }} />
                     )}
                 </NextUILink>
             )}
