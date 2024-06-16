@@ -14,6 +14,7 @@
     "axios": "^1.7.2",
     "googleapis": "^140.0.0",
     "next": "14.2.4",
+    "public-google-sheets-parser": "^1.5.4",
     "react": "^18",
     "react-dom": "^18"
   },
