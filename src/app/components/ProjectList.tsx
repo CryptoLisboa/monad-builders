@@ -58,7 +58,7 @@ const ProjectList = ({ data, className }: { data: Project[]; className?: string 
                     const isDiscord = isDiscordLink(item["discord/tg"] || "");
                     return (
                         <div key={index} className="p-6 rounded-lg shadow-lg">
-                            <Card className="grid">
+                            <Card className="grid bg-purple-700">
                                 <CardHeader className="mb-4">
                                     <h3 className="text-xl font-bold">{item.name}</h3>
                                 </CardHeader>
