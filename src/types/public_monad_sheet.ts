@@ -5,7 +5,7 @@ export interface Project {
     x: string;
     website?: string;
     discordTg?: string;
-    announcedByMonad: boolean;
+    ["Announced by Monad"]: boolean;
 }
 
 export interface DataResponse {
