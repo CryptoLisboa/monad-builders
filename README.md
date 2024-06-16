@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Monad Builders
+
+This is a Next.js project, designed to showcase and manage projects using data fetched from Google Sheets. It's bootstrapped with create-next-app.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 12.0 or later
+- npm, Yarn, or pnpm
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```
+   git clone https://github.com/your-repository/monad-builders.git
+   cd monad-builders
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Install dependencies:
+   ```
+   pnpm install
+   ```
+
+3. Set up environment variables:
+   Create a .env.local file in the root directory and add the following:
+   ```
+   SPREADSHEET_ID=1BkBAHhwbHMK7spTrBa9kmgWeBqKPJOTR6Ebl6eENOwQ
+   ```
+
+4. Run the development server:
+   ```
+   pnpm dev
+   ```
+
+5. Open http://localhost:3000 with your browser to see the result.
+
+## Contributing
+
+We welcome contributions from everyone. Here are some ways you can contribute:
+
+- Reporting bugs
+- Suggesting enhancements
+- Pull Requests
+
+### Pull Requests
+
+1. Fork the repository and create your branch from main.
+2. If you've added code that should be tested, add tests.
+3. Ensure the test suite passes.
+4. Make sure your code lints.
+5. Issue that pull request!
 
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Next.js Documentation - learn about Next.js features and API.
+- Learn Next.js - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+The easiest way to deploy your Next.js app is to use the Vercel Platform from the creators of Next.js.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Check out our Next.js deployment documentation for more details.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
