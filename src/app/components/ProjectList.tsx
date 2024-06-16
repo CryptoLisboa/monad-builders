@@ -2,9 +2,9 @@
 import { Project } from "@/types/public_monad_sheet";
 import Link from "next/link";
 
-const ProjectList = ({ data }: { data: Project[] }) => {
+const ProjectList = ({ data, className }: { data: Project[]; className?: string }) => {
     return (
-        <div>
+        <div className={className}>
             {data.map((item: Project, index: number) => (
                 <div key={index} className="bg-gray-700 rounded-lg p-4 mb-4 shadow">
                     <h3 className="text-xl font-bold">{item.name}</h3>
