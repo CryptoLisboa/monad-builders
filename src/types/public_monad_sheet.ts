@@ -4,7 +4,7 @@ export interface Project {
     native: boolean;
     x: string;
     website?: string;
-    discordTg?: string;
+    ["discord/tg"]?: string;
     ["Announced by Monad"]: boolean;
 }
 
