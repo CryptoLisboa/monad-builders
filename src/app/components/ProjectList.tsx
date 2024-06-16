@@ -3,8 +3,9 @@ import { Project } from "@/types/public_monad_sheet";
 import { isDiscordLink } from "@/utils/links";
 import { Card, CardBody, CardFooter, CardHeader, Link as NextUILink } from "@nextui-org/react";
 import Link from "next/link";
-import { FaTwitter, FaTelegramPlane, FaDiscord } from "react-icons/fa";
+import { FaTelegramPlane, FaDiscord } from "react-icons/fa";
 import { FiGlobe } from "react-icons/fi"; // For a generic website icon
+import { FaXTwitter } from "react-icons/fa6";
 
 const ProjectList = ({ data, className }: { data: Project[]; className?: string }) => {
     return (
@@ -46,7 +47,7 @@ const ProjectList = ({ data, className }: { data: Project[]; className?: string 
                                         as={Link}
                                         className="text-blue-600 underline"
                                     >
-                                        <FaTwitter style={{ color: "#1DA1F2" }} />
+                                        <FaXTwitter style={{ color: "#000000" }} />
                                     </NextUILink>
                                 )}
                                 {item.website && (
