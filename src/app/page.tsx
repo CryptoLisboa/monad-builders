@@ -3,7 +3,6 @@ import { Project } from "@/types/public_monad_sheet";
 
 export default async function Home() {
     const data = await fetchPublicSheet();
-    console.log(JSON.stringify(data, null, 2));
     return (
         <main className="bg-gray-800 min-h-screen p-4">
             <div className="text-white">

@@ -1,22 +1,16 @@
 import { fetchPublicSheet } from "@/services/public-sheet-fetcher";
-import { Project } from "@/types/public_monad_sheet";
 // import axios from "axios";
 // import { google } from "googleapis";
-import { NextRequest, NextResponse } from "next/server";
-import PublicGoogleSheetsParser from "public-google-sheets-parser";
+import { NextResponse } from "next/server";
 
 // const sheets = google.sheets("v4");
 
-const SPREADSHEET_ID = "1BkBAHhwbHMK7spTrBa9kmgWeBqKPJOTR6Ebl6eENOwQ";
+// const SPREADSHEET_ID = process.env.SPREADSHEET_ID;
 // const RANGE = "Sheet1!A3:H71"; // Adjust the range according to the sheet structure
 
-// return NextResponse.json({ message: "Hello, world!" });
-
-export async function GET(req: NextRequest, res: NextResponse) {
+export async function GET() {
     try {
-
         const data = await fetchPublicSheet();
-        console.log(data);
         return NextResponse.json({ data, status: 200 });
 
         // const response = await axios.get(
@@ -50,7 +44,3 @@ export async function GET(req: NextRequest, res: NextResponse) {
         return NextResponse.json({ error: "Error fetching data" }, { status: 500 });
     }
 }
-
-// export async function GET(req: NextRequest, res: NextResponse) {
-//     return NextResponse.json({ message: "Hello, world!" });
-// }
