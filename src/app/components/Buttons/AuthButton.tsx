@@ -6,7 +6,7 @@ export default async function AuthButton() {
   const supabase = createClient();
 
   const dataGetUser = await supabase.auth.getUser();
-  console.log("dataGetUser: ", JSON.stringify(dataGetUser, null, 2));
+
   const user = dataGetUser?.data?.user;
 
   return (
