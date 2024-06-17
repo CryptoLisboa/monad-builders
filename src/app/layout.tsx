@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 import Head from "next/head";
+import NavBar from "./components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,7 +34,10 @@ export default function RootLayout({
         <link rel="icon" href="/images/monad-builders.jpeg" type="image/jpeg" />
       </Head>
       <body className={inter.className}>
-        <NextUIProvider>{children}</NextUIProvider>
+        <NextUIProvider>
+          <NavBar />
+          {children}
+        </NextUIProvider>
       </body>
     </html>
   );
