@@ -4,7 +4,7 @@ import AuthButton from "./Buttons/AuthButton";
 
 export default function NavBar() {
   return (
-    <div className="bg-purple-900 flex justify-between items-center h-14 md:h-16 px-4 md:px-8">
+    <div className="bg-gradient-to-r from-gradient-start to-gradient-end flex justify-between items-center h-14 md:h-16 px-4 md:px-8">
       <Link href="/">
         <Image
           src="/images/monad-builders.jpeg"

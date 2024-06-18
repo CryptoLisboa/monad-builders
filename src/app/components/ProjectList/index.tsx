@@ -105,7 +105,7 @@ const ProjectList = ({
           aria-label="Accordion 1"
           title="Search Filters"
           className="inline-block"
-          classNames={{ title: "text-white text-center" }}
+          classNames={{ title: "text-white text-left lg:text-center" }}
           style={{ minWidth: `${contentWidth}px` }}
         >
           <div
@@ -143,10 +143,10 @@ const ProjectList = ({
       </Accordion>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {filteredData.map((item: Project, index: number) => (
-          <div key={index} className="p-6 rounded-lg shadow-lg">
-            <Card className="grid bg-purple-700">
+          <div key={index} className="rounded-lg shadow-lg">
+            <Card className="grid bg-white bg-opacity-30">
               <CardHeader className="mb-4">
-                <h3 className="text-xl text-gray-300 font-bold">{item.name}</h3>
+                <h3 className="text-xl text-white font-bold">{item.name}</h3>
               </CardHeader>
               <ProjectListBody item={item} />
               <ProjectListFooter item={item} />

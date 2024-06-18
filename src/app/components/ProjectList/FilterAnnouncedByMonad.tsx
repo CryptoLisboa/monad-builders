@@ -21,24 +21,24 @@ const FilterAnnouncedByMonad: React.FC<FilterAnnouncedByMonadProps> = ({
         defaultValue={defaultValue}
         orientation="horizontal"
         classNames={{
-          label: "text-base text-gray-100",
+          label: "text-base text-white",
         }}
       >
         <Radio
           value={"all" as AnnouncedByMonad}
-          classNames={{ label: "text-gray-200 text-sm" }}
+          classNames={{ label: "text-white text-sm" }}
         >
           All
         </Radio>
         <Radio
           value={"yes" as AnnouncedByMonad}
-          classNames={{ label: "text-gray-200 text-sm" }}
+          classNames={{ label: "text-white text-sm" }}
         >
           Yes
         </Radio>
         <Radio
           value={"no" as AnnouncedByMonad}
-          classNames={{ label: "text-gray-200 text-sm" }}
+          classNames={{ label: "text-white text-sm" }}
         >
           No
         </Radio>
