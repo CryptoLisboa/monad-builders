@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Project } from "@/types/public_monad_sheet";
 import { Card, CardHeader } from "@nextui-org/react";
 import ProjectListFooter from "./Footer";
@@ -9,17 +9,26 @@ import FilterAnnouncedByMonad from "./FilterAnnouncedByMonad";
 import FilterByCategory from "./FilterByCategory";
 import FilterByProtocol from "./FilterByProtocol";
 
+const getCategories = (data: Project[]) => {
+  const categories = data.map((item) => item.category);
+  return Array.from(new Set<Project["category"]>(categories));
+};
+
+const getProtocols = (data: Project[]) => {
+  const protocols = data.map((item) => item.protocol);
+  return Array.from(new Set<Project["protocol"]>(protocols));
+};
+
 const ProjectList = ({
   data,
   className,
-  categories: categoriesArg,
-  protocols: protocolsArg,
 }: {
   data: Project[];
   className?: string;
-  categories: Project["category"][];
-  protocols: Project["protocol"][];
 }) => {
+  const categoriesArg = useMemo(() => getCategories(data), [data]);
+  const protocolsArg = useMemo(() => getProtocols(data), [data]);
+
   let filteredData = data;
 
   const [announcedByMonadFilter, setAnnouncedByMonadFilter] =
