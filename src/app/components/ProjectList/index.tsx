@@ -6,6 +6,7 @@ import {
   AccordionItem,
   Card,
   CardHeader,
+  Input,
   Selection,
 } from "@nextui-org/react";
 import ProjectListFooter from "./Footer";
@@ -14,7 +15,7 @@ import { AnnouncedByMonad } from "@/types";
 import FilterAnnouncedByMonad from "./FilterAnnouncedByMonad";
 import FilterByCategory from "./FilterByCategory";
 import FilterByProtocol from "./FilterByProtocol";
-import { isDesktop } from "react-device-detect";
+import { isMobile } from "react-device-detect";
 
 const ProjectList = ({
   data,
@@ -63,12 +64,25 @@ const ProjectList = ({
     );
   }
 
-  const initialKeys = isDesktop ? new Set(["1"]) : new Set([]);
-  const [selectedKeys, setSelectedKeys] =
-    React.useState<Selection>(initialKeys);
+  const [searchString, setSearchString] = useState("");
+  if (searchString) {
+    filteredData = filteredData.filter((item) =>
+      item.name.toLowerCase().includes(searchString.toLowerCase())
+    );
+  }
+
+  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(
+    new Set(["1"])
+  );
   const handleSelectionChange = (keys: Selection) => {
     setSelectedKeys(keys);
   };
+  useEffect(() => {
+    if (isMobile) {
+      setSelectedKeys(new Set([]));
+    }
+  }, []);
+
   const [contentWidth, setContentWidth] = useState(0);
   const contentRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -98,6 +112,15 @@ const ProjectList = ({
             ref={contentRef}
             className="flex flex-col lg:flex-row gap-4 lg:gap-6"
           >
+            <Input
+              type="text"
+              label="Search project"
+              size="sm"
+              variant="bordered"
+              className="w-44 lg:w-64"
+              onValueChange={setSearchString}
+              value={searchString}
+            />
             <FilterAnnouncedByMonad
               className=""
               onFilterChange={updateMonadFilter}
