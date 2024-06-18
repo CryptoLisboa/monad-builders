@@ -1,6 +1,5 @@
 import { createClient } from "@/utils/supabase/server";
 import AuthButtonClientSide from "./AuthButton.client_side";
-import React, { Suspense } from "react";
 
 export default async function AuthButton() {
   const supabase = createClient();
@@ -9,9 +8,5 @@ export default async function AuthButton() {
 
   const user = dataGetUser?.data?.user;
 
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <AuthButtonClientSide user={user} />
-    </Suspense>
-  );
+  return <AuthButtonClientSide user={user} />;
 }
