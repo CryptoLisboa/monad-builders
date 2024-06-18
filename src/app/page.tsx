@@ -1,6 +1,5 @@
 import { fetchPublicSheet } from "@/services/public-sheet-fetcher";
 import ProjectList from "./components/ProjectList";
-import { Project } from "@/types/public_monad_sheet";
 
 export default async function Home() {
   const data = await fetchPublicSheet();
@@ -10,10 +9,7 @@ export default async function Home() {
         <h1 className="text-2xl lg:text-4xl text-center font-bold">
           Monad Projects
         </h1>
-        <ProjectList
-          className="mt-4 lg:mt-8"
-          data={data}
-        />
+        <ProjectList className="mt-4 lg:mt-8" data={data} />
       </div>
     </main>
   );

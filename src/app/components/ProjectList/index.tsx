@@ -26,8 +26,18 @@ const ProjectList = ({
   data: Project[];
   className?: string;
 }) => {
-  const categoriesArg = useMemo(() => getCategories(data), [data]);
-  const protocolsArg = useMemo(() => getProtocols(data), [data]);
+  const categoriesArg = useMemo(() => {
+    console.log("categoriesArg: data", data);
+    const categories = getCategories(data);
+    console.log("categoriesArg: categories", categories);
+    return categories;
+  }, [data]);
+  const protocolsArg = useMemo(() => {
+    console.log("protocolsArg: data", data);
+    const protocols = getProtocols(data);
+    console.log("protocolsArg: protocols", protocols);
+    return protocols;
+  }, [data]);
 
   let filteredData = data;
 
