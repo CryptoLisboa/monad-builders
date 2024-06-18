@@ -41,7 +41,7 @@ const FilterByCategory: React.FC<FilterByCategoryProps> = ({
         }}
       >
         {categories.map((category) => (
-          <SelectItem key={category}>{category}</SelectItem>
+          <SelectItem key={category!}>{category}</SelectItem>
         ))}
       </Select>
     </div>

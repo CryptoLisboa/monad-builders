@@ -16,9 +16,7 @@ export default async function Home() {
   const data = await fetchPublicSheet();
   // let's create a function that extract all categories from the data as unique values
   const categories = getCategories(data);
-  console.log(categories);
   const protocols = getProtocols(data);
-  console.log(protocols);
   return (
     <main className="bg-purple-900 min-h-screen p-4">
       <div className="text-white">
