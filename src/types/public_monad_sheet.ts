@@ -1,5 +1,6 @@
 export interface Project {
     category?: string;
+    protocol?: string;
     name: string;
     native: boolean;
     x: string;

@@ -5,6 +5,9 @@ export default function ProjectListBody({ item }: { item: Project }) {
     return (
         <CardBody className="grid">
             <p className="mb-2 text-slate-900 text-lg lg:text-xl">
+                Protocol: <span className="font-semibold text-gray-300 text-base lg:text-lg">{item.protocol}</span>
+            </p>
+            <p className="mb-2 text-slate-900 text-lg lg:text-xl">
                 Category: <span className="font-semibold text-gray-300 text-base lg:text-lg">{item.category}</span>
             </p>
             <p className="mb-2 text-lg lg:text-xl text-slate-9000">
