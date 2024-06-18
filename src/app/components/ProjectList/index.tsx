@@ -118,6 +118,10 @@ const ProjectList = ({
               size="sm"
               variant="bordered"
               className="w-44 lg:w-64"
+              classNames={{
+                label: "text-white",
+                base: "text-monad-green",
+              }}
               onValueChange={setSearchString}
               value={searchString}
             />

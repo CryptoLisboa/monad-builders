@@ -37,12 +37,20 @@ const FilterByProtocol: React.FC<FilterByProtocolProps> = ({
         size="sm"
         className="w-44 lg:w-80"
         classNames={{
-          label: "text-sm",
-          listbox: "bg-gray-600",
+          label: "text-sm text-white",
+          popoverContent: "bg-gray-600",
+          value: "text-monad-green",
         }}
       >
         {protocols.map((protocol) => (
-          <SelectItem key={protocol!}>{protocol}</SelectItem>
+          <SelectItem
+            classNames={{
+              base: "text-monad-green",
+            }}
+            key={protocol!}
+          >
+            {protocol}
+          </SelectItem>
         ))}
       </Select>
     </div>

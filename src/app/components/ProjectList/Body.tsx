@@ -7,19 +7,19 @@ export default function ProjectListBody({ item }: { item: Project }) {
     <CardBody className="grid">
       <p className="mb-2 text-lg lg:text-xl text-white">
         Protocol:{" "}
-        <span className="font-semibold text-[#87FFDB] text-base lg:text-lg">
+        <span className="font-semibold text-monad-green text-base lg:text-lg">
           {item.protocol}
         </span>
       </p>
       <p className="mb-2 text-lg lg:text-xl text-white">
         Category:{" "}
-        <span className="font-semibold text-[#87FFDB] text-base lg:text-lg">
+        <span className="font-semibold text-monad-green text-base lg:text-lg">
           {item.category}
         </span>
       </p>
       <p className="mb-2 text-lg lg:text-xl text-white">
         Native:{" "}
-        <span className="font-semibold text-[#87FFDB] text-base lg:text-lg">
+        <span className="font-semibold text-monad-green text-base lg:text-lg">
           {item.native ? "Yes" : "No"}
         </span>
       </p>
@@ -28,8 +28,8 @@ export default function ProjectListBody({ item }: { item: Project }) {
         <span
           className={
             item["Announced by Monad"]
-              ? "text-[#87FFDB] font-semibold text-base lg:text-lg"
-              : "text-[#E14037] font-semibold text-base lg:text-lg"
+              ? "text-monad-green font-semibold text-base lg:text-lg"
+              : "text-monad-red font-semibold text-base lg:text-lg"
           }
         >
           {item["Announced by Monad"] ? <FaCheck /> : <FaTimes />}

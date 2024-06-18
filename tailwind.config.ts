@@ -18,6 +18,8 @@ const config: Config = {
       colors: {
         "gradient-start": "#B17EC2",
         "gradient-end": "#8C44FF",
+        "monad-green": "#87FFDB",
+        "monad-red": "#E14037",
       },
     },
   },

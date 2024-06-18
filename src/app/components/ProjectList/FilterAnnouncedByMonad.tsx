@@ -23,10 +23,13 @@ const FilterAnnouncedByMonad: React.FC<FilterAnnouncedByMonadProps> = ({
         classNames={{
           label: "text-base text-white",
         }}
+        size="sm"
       >
         <Radio
           value={"all" as AnnouncedByMonad}
-          classNames={{ label: "text-white text-sm" }}
+          classNames={{
+            label: "text-white text-sm",
+          }}
         >
           All
         </Radio>
