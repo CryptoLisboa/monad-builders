@@ -75,7 +75,7 @@ const ProjectList = ({
         protocolFilter={protocolFilter}
         setProtocolFilter={setProtocolFilter}
       />
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {filteredData.map((item: Project, index: number) => (
           <div key={index} className="p-6 rounded-lg shadow-lg">
             <Card className="grid bg-purple-700">
