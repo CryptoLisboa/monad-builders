@@ -20,6 +20,7 @@
     "next": "14.2.4",
     "public-google-sheets-parser": "^1.5.4",
     "react": "^18",
+    "react-device-detect": "^2.2.3",
     "react-dom": "^18",
     "react-icons": "^5.2.1"
   },

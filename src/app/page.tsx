@@ -17,7 +17,7 @@ export default async function Home() {
   const categories = getCategories(data);
   const protocols = getProtocols(data);
   return (
-    <main className="bg-purple-900 min-h-screen p-4">
+    <main className="bg-gradient-to-r from-gradient-start to-gradient-end min-h-screen p-4">
       <div className="text-white">
         <h1 className="text-2xl lg:text-4xl text-center font-bold">
           Monad Projects

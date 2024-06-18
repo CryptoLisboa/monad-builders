@@ -25,7 +25,7 @@ const FilterByCategory: React.FC<FilterByCategoryProps> = ({
   return (
     <div className={className}>
       <Select
-        label="Filter by category"
+        label="Category"
         onSelectionChange={updateCategoryFilter}
         value={
           categoryFilter as string | number | readonly string[] | undefined
@@ -36,12 +36,20 @@ const FilterByCategory: React.FC<FilterByCategoryProps> = ({
         size="sm"
         className="w-44 lg:w-80"
         classNames={{
-          label: "text-sm",
-          listbox: "bg-gray-600",
+          label: "text-sm text-white",
+          popoverContent: "bg-gray-600",
+          value: "text-monad-green",
         }}
       >
         {categories.map((category) => (
-          <SelectItem key={category!}>{category}</SelectItem>
+          <SelectItem
+            classNames={{
+              base: "text-monad-green",
+            }}
+            key={category!}
+          >
+            {category}
+          </SelectItem>
         ))}
       </Select>
     </div>
