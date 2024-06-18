@@ -25,7 +25,7 @@ const FilterByCategory: React.FC<FilterByCategoryProps> = ({
   return (
     <div className={className}>
       <Select
-        label="Filter by category"
+        label="Category"
         onSelectionChange={updateCategoryFilter}
         value={
           categoryFilter as string | number | readonly string[] | undefined

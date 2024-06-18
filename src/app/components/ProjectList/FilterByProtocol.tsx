@@ -26,7 +26,7 @@ const FilterByProtocol: React.FC<FilterByProtocolProps> = ({
   return (
     <div className={className}>
       <Select
-        label="Filter by protocol"
+        label="Protocol"
         onSelectionChange={updateProtocolFilter}
         value={
           protocolFilter as string | number | readonly string[] | undefined
