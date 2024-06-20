@@ -1,6 +1,6 @@
 export interface Project {
-    category?: string;
-    protocol?: string;
+    category: string;
+    protocol: string;
     name: string;
     native: boolean;
     pfp?: string;
