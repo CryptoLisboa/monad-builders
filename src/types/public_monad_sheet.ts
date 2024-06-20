@@ -1,8 +1,9 @@
 export interface Project {
-    category?: string;
-    protocol?: string;
+    category: string;
+    protocol: string;
     name: string;
     native: boolean;
+    pfp?: string;
     x: string;
     website?: string;
     ["discord/tg"]?: string;

@@ -3,8 +3,8 @@ import { Selection, Select, SelectItem } from "@nextui-org/react";
 
 type FilterByCategoryProps = {
   categoriesArg: (string | undefined)[];
-  categoryFilter: (string | undefined)[];
-  setCategoryFilter: Dispatch<SetStateAction<(string | undefined)[]>>;
+  categoryFilter: string[];
+  setCategoryFilter: Dispatch<SetStateAction<string[]>>;
   className?: string;
 };
 
@@ -16,8 +16,8 @@ const FilterByCategory: React.FC<FilterByCategoryProps> = ({
 }) => {
   const categories = ["all", ...categoriesArg];
   const updateCategoryFilter = (keys: Selection) => {
-    if (Array.from(keys).includes("all")) {
-      setCategoryFilter([]);
+    if (Array.from(keys).includes("all") || Array.from(keys).length === 0) {
+      setCategoryFilter(["all"]);
     } else {
       setCategoryFilter(Array.from(keys).map((key) => key.toString()));
     }
@@ -27,9 +27,7 @@ const FilterByCategory: React.FC<FilterByCategoryProps> = ({
       <Select
         label="Category"
         onSelectionChange={updateCategoryFilter}
-        value={
-          categoryFilter as string | number | readonly string[] | undefined
-        }
+        selectedKeys={categoryFilter}
         defaultSelectedKeys={["all"]}
         variant="bordered"
         color="secondary"
