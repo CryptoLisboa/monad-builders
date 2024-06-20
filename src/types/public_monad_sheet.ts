@@ -3,6 +3,7 @@ export interface Project {
     protocol?: string;
     name: string;
     native: boolean;
+    pfp?: string;
     x: string;
     website?: string;
     ["discord/tg"]?: string;

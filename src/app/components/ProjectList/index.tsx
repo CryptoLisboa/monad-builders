@@ -16,6 +16,7 @@ import FilterAnnouncedByMonad from "./FilterAnnouncedByMonad";
 import FilterByCategory from "./FilterByCategory";
 import FilterByProtocol from "./FilterByProtocol";
 import { isMobile } from "react-device-detect";
+import Image from "next/image";
 
 const ProjectList = ({
   data,
@@ -28,7 +29,7 @@ const ProjectList = ({
   categories: Project["category"][];
   protocols: Project["protocol"][];
 }) => {
-  let filteredData = data;
+  let filteredProjects = data;
 
   const [announcedByMonadFilter, setAnnouncedByMonadFilter] =
     useState<AnnouncedByMonad>("all"); // 'all', 'yes', 'no'
@@ -36,7 +37,7 @@ const ProjectList = ({
     setAnnouncedByMonadFilter(value as AnnouncedByMonad);
   };
   if (announcedByMonadFilter !== "all") {
-    filteredData = filteredData.filter((item) => {
+    filteredProjects = filteredProjects.filter((item) => {
       const isAnnounced = item["Announced by Monad"] ? "yes" : "no";
       return isAnnounced === announcedByMonadFilter;
     });
@@ -48,7 +49,7 @@ const ProjectList = ({
   const shouldFilterByCategory =
     categoryFilter.length > 0 && !categoryFilter.includes("all");
   if (shouldFilterByCategory) {
-    filteredData = filteredData.filter((item) =>
+    filteredProjects = filteredProjects.filter((item) =>
       categoryFilter.includes(item.category)
     );
   }
@@ -59,14 +60,14 @@ const ProjectList = ({
   const shouldFilterByProtocol =
     protocolFilter.length > 0 && !protocolFilter.includes("all");
   if (shouldFilterByProtocol) {
-    filteredData = filteredData.filter((item) =>
+    filteredProjects = filteredProjects.filter((item) =>
       protocolFilter.includes(item.protocol)
     );
   }
 
   const [searchString, setSearchString] = useState("");
   if (searchString) {
-    filteredData = filteredData.filter((item) =>
+    filteredProjects = filteredProjects.filter((item) =>
       item.name.toLowerCase().includes(searchString.toLowerCase())
     );
   }
@@ -146,14 +147,24 @@ const ProjectList = ({
         </AccordionItem>
       </Accordion>
       <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {filteredData.map((item: Project, index: number) => (
+        {filteredProjects.map((projectInfo: Project, index: number) => (
           <div key={index} className="rounded-lg shadow-lg">
-            <Card className="grid bg-white bg-opacity-30">
-              <CardHeader className="mb-4">
-                <h3 className="text-xl text-white font-bold">{item.name}</h3>
+            <Card className="grid bg-white bg-opacity-50 px-3 lg:px-5">
+              <CardHeader className="mb-4 pt-5 lg:pt-8 flex flex-row gap-4">
+                <Image
+                  src={projectInfo.pfp!}
+                  alt="Project PFP"
+                  className="rounded-full w-12 h-12 lg:w-20 lg:h-20"
+                  width={80}
+                  height={80}
+                  unoptimized
+                />
+                <h3 className="text-xl text-white font-bold">
+                  {projectInfo.name}
+                </h3>
               </CardHeader>
-              <ProjectListBody item={item} />
-              <ProjectListFooter item={item} />
+              <ProjectListBody item={projectInfo} />
+              <ProjectListFooter item={projectInfo} />
             </Card>
           </div>
         ))}
