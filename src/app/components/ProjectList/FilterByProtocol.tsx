@@ -3,8 +3,8 @@ import { Selection, Select, SelectItem } from "@nextui-org/react";
 
 type FilterByProtocolProps = {
   protocolsArg: (string | undefined)[];
-  protocolFilter: (string | undefined)[];
-  setProtocolFilter: Dispatch<SetStateAction<(string | undefined)[]>>;
+  protocolFilter: string[];
+  setProtocolFilter: Dispatch<SetStateAction<string[]>>;
   className?: string;
 };
 
@@ -16,8 +16,8 @@ const FilterByProtocol: React.FC<FilterByProtocolProps> = ({
 }) => {
   const protocols = ["all", ...protocolsArg];
   const updateProtocolFilter = (keys: Selection) => {
-    if (Array.from(keys).includes("all")) {
-      setProtocolFilter([]);
+    if (Array.from(keys).includes("all") || Array.from(keys).length === 0) {
+      setProtocolFilter(["all"]);
     } else {
       setProtocolFilter(Array.from(keys).map((key) => key.toString()));
     }
@@ -28,9 +28,7 @@ const FilterByProtocol: React.FC<FilterByProtocolProps> = ({
       <Select
         label="Protocol"
         onSelectionChange={updateProtocolFilter}
-        value={
-          protocolFilter as string | number | readonly string[] | undefined
-        }
+        selectedKeys={protocolFilter}
         defaultSelectedKeys={["all"]}
         variant="bordered"
         color="secondary"

@@ -1,8 +1,17 @@
 import { Project } from "@/types/public_monad_sheet";
-import { CardBody, Chip } from "@nextui-org/react";
+import { Button, CardBody, Chip } from "@nextui-org/react";
+import { Dispatch, SetStateAction } from "react";
 import { FaCheck, FaTimes } from "react-icons/fa";
 
-export default function ProjectListBody({ item }: { item: Project }) {
+export default function ProjectListBody({
+  item,
+  setCategoryFilter,
+  setProtocolFilter,
+}: {
+  item: Project;
+  setCategoryFilter: Dispatch<SetStateAction<string[]>>;
+  setProtocolFilter: Dispatch<SetStateAction<string[]>>;
+}) {
   return (
     <CardBody className="grid gap-y-2">
       <p className="text-lg lg:text-xl text-white">
@@ -11,6 +20,10 @@ export default function ProjectListBody({ item }: { item: Project }) {
             className="font-semibold text-monad-green text-base lg:text-lg"
             variant="bordered"
             size="lg"
+            onClick={() => {
+              setCategoryFilter([item.category]);
+            }}
+            as={Button}
           >
             {item.category}
           </Chip>
@@ -18,6 +31,10 @@ export default function ProjectListBody({ item }: { item: Project }) {
             className="font-semibold text-monad-green text-base lg:text-lg"
             variant="bordered"
             size="lg"
+            onClick={() => {
+              setProtocolFilter([item.protocol]);
+            }}
+            as={Button}
           >
             {item.protocol}
           </Chip>

@@ -18,6 +18,15 @@ import FilterByProtocol from "./FilterByProtocol";
 import { isMobile } from "react-device-detect";
 import Image from "next/image";
 
+const getFilterIndex =
+  (
+    filters: Project["category"][] | Project["protocol"][],
+    includesOptionAll: boolean = false
+  ) =>
+  (filter: Project["category"] | Project["protocol"]) => {
+    return filters.indexOf(filter) + (includesOptionAll ? 1 : 0);
+  };
+
 const ProjectList = ({
   data,
   className,
@@ -43,25 +52,21 @@ const ProjectList = ({
     });
   }
 
-  const [categoryFilter, setCategoryFilter] = useState<Project["category"][]>([
-    "all",
-  ]);
+  const [categoryFilter, setCategoryFilter] = useState<string[]>(["all"]);
   const shouldFilterByCategory =
-    categoryFilter.length > 0 && !categoryFilter.includes("all");
+    categoryFilter.length > 0 && categoryFilter[0] !== "all";
   if (shouldFilterByCategory) {
-    filteredProjects = filteredProjects.filter((item) =>
-      categoryFilter.includes(item.category)
+    filteredProjects = filteredProjects.filter(
+      (item) => item.category === categoryFilter[0]
     );
   }
 
-  const [protocolFilter, setProtocolFilter] = useState<Project["protocol"][]>([
-    "all",
-  ]);
+  const [protocolFilter, setProtocolFilter] = useState<string[]>(["all"]);
   const shouldFilterByProtocol =
-    protocolFilter.length > 0 && !protocolFilter.includes("all");
+    protocolFilter.length > 0 && protocolFilter[0] !== "all";
   if (shouldFilterByProtocol) {
-    filteredProjects = filteredProjects.filter((item) =>
-      protocolFilter.includes(item.protocol)
+    filteredProjects = filteredProjects.filter(
+      (item) => item.protocol === protocolFilter[0]
     );
   }
 
@@ -163,7 +168,11 @@ const ProjectList = ({
                   {projectInfo.name}
                 </h3>
               </CardHeader>
-              <ProjectListBody item={projectInfo} />
+              <ProjectListBody
+                item={projectInfo}
+                setCategoryFilter={setCategoryFilter}
+                setProtocolFilter={setProtocolFilter}
+              />
               <ProjectListFooter item={projectInfo} />
             </Card>
           </div>
