@@ -43,7 +43,9 @@ export default function ProjectListBody({
       <p className="flex flex-row justify-between text-lg lg:text-xl text-white">
         <span>
           Native:{" "}
-          <span className="font-semibold text-monad-green text-base lg:text-lg">
+          <span
+            className={`font-semibold text-monad-green text-base lg:text-lg ${item.native ? "text-monad-green" : "text-monad-red"}`}
+          >
             {item.native ? "Yes" : "No"}
           </span>
         </span>
