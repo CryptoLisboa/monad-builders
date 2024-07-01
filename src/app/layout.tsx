@@ -4,6 +4,7 @@ import "./globals.css";
 import { NextUIProvider } from "@nextui-org/react";
 import Head from "next/head";
 import NavBar from "./components/NavBar";
+import NavFooter from "./components/NavFooter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,10 +34,11 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/images/monad-builders.jpeg" type="image/jpeg" />
       </Head>
-      <body className={inter.className}>
+      <body className={`${inter.className}`}>
         <NextUIProvider>
           <NavBar />
           {children}
+          <NavFooter />
         </NextUIProvider>
       </body>
     </html>
