@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Great+Vibes&family=Lobster&family=Dancing+Script&family=Roboto:wght@400;700&display=swap');
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -32,4 +34,24 @@ body {
 .bg-opacity-50 {
   background-color: rgba(255, 255, 255, 0.5);
   /* White with 30% opacity */
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+.font-pacifico {
+  font-family: 'Pacifico', cursive;
+}
+
+.font-great-vibes {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-lobster {
+  font-family: 'Lobster', cursive;
+}
+
+.font-dancing-script {
+  font-family: 'Dancing Script', cursive;
 }
