@@ -1,4 +1,4 @@
-import { DataResponse, Project } from "@/types/public_monad_sheet";
+import { Project } from "@/types/public_monad_sheet";
 import PublicGoogleSheetsParser from "public-google-sheets-parser";
 
 export async function fetchPublicSheet(): Promise<Project[]> {

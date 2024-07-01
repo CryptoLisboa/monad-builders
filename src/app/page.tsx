@@ -12,6 +12,7 @@ const getProtocols = (data: Project[]) => {
   return Array.from(new Set<Project["protocol"]>(protocols));
 };
 
+export const dynamic = "force-dynamic";
 export default async function Home() {
   const data = await fetchPublicSheet();
   const categories = getCategories(data);
