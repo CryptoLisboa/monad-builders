@@ -9,7 +9,7 @@ export const signInDirect = async () => {
     provider: "discord",
     options: {
       redirectTo: `${baseUrl}/api/auth/callback`,
-      scopes: "connections email guilds guilds.members.read identify ",
+      scopes: "connections email guilds guilds.members.read identify",
     },
   });
 };

@@ -1,21 +1,15 @@
-import Image from "next/image";
 import Link from "next/link";
-import AuthButton from "./Buttons/AuthButton";
 
 export default function NavBar() {
   return (
-    <div className="bg-gradient-to-r from-gradient-start to-gradient-end flex justify-between items-center h-14 md:h-16 px-4 md:px-8">
+    <div className="bg-gradient-to-r from-gradient-start to-gradient-end flex justify-center items-center h-14 md:h-16 px-4 md:px-8 opacity-80">
       <Link href="/">
-        <Image
-          src="/images/monad-builders.jpeg"
-          alt="Monad Builders"
-          width={44}
-          height={44}
-          unoptimized
-          className="rounded-xl w-10 h-10 md:w-11 md:h-11"
-        />
+        <h1 className="text-2xl lg:text-4xl text-center text-white">
+          {/* Monad Builders */}
+          <span className="font-roboto font-semibold">{"Monad "}</span>
+          <span className="font-lobster">Builders</span>
+        </h1>
       </Link>
-      <AuthButton />
     </div>
   );
 }

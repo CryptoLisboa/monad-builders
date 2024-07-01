@@ -11,21 +11,13 @@ import {
 } from "@nextui-org/react";
 import ProjectListFooter from "./Footer";
 import ProjectListBody from "./Body";
-import { AnnouncedByMonad } from "@/types";
+import { AnnouncedByMonad, NativeToMonad } from "@/types";
 import FilterAnnouncedByMonad from "./FilterAnnouncedByMonad";
 import FilterByCategory from "./FilterByCategory";
 import FilterByProtocol from "./FilterByProtocol";
 import { isMobile } from "react-device-detect";
 import Image from "next/image";
-
-const getFilterIndex =
-  (
-    filters: Project["category"][] | Project["protocol"][],
-    includesOptionAll: boolean = false
-  ) =>
-  (filter: Project["category"] | Project["protocol"]) => {
-    return filters.indexOf(filter) + (includesOptionAll ? 1 : 0);
-  };
+import FilterNativeToMonad from "./FilterNativeToMonad";
 
 const ProjectList = ({
   data,
@@ -42,13 +34,35 @@ const ProjectList = ({
 
   const [announcedByMonadFilter, setAnnouncedByMonadFilter] =
     useState<AnnouncedByMonad>("all"); // 'all', 'yes', 'no'
-  const updateMonadFilter = (value: string) => {
+  const updateAnnouncedByMonadFilter = (value: string) => {
     setAnnouncedByMonadFilter(value as AnnouncedByMonad);
   };
   if (announcedByMonadFilter !== "all") {
     filteredProjects = filteredProjects.filter((item) => {
       const isAnnounced = item["Announced by Monad"] ? "yes" : "no";
       return isAnnounced === announcedByMonadFilter;
+    });
+  }
+
+  const [nativeToMonadFilter, setNativeToMonadFilter] =
+    useState<NativeToMonad>("all"); // 'all', 'yes', 'no'
+  const updateNativeToMonadFilter = (value: string) => {
+    setNativeToMonadFilter(value as NativeToMonad);
+  };
+  if (nativeToMonadFilter !== "all") {
+    filteredProjects = filteredProjects.filter((item) => {
+      const hasIsNativeFilterActive =
+        nativeToMonadFilter === "yes" || nativeToMonadFilter === "no";
+      if (!hasIsNativeFilterActive) {
+        return true;
+      }
+      if (nativeToMonadFilter === "yes") {
+        return item?.native === true;
+      }
+      if (nativeToMonadFilter === "no") {
+        return item?.native === false;
+      }
+      return false;
     });
   }
 
@@ -133,8 +147,13 @@ const ProjectList = ({
             />
             <FilterAnnouncedByMonad
               className=""
-              onFilterChange={updateMonadFilter}
+              onFilterChange={updateAnnouncedByMonadFilter}
               defaultValue={"all" as AnnouncedByMonad}
+            />
+            <FilterNativeToMonad
+              className=""
+              onFilterChange={updateNativeToMonadFilter}
+              defaultValue={"all" as NativeToMonad}
             />
             <FilterByCategory
               className=""

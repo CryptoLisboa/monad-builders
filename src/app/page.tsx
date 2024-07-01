@@ -19,9 +19,6 @@ export default async function Home() {
   return (
     <main className="bg-gradient-to-r from-gradient-start to-gradient-end min-h-screen p-4">
       <div className="text-white">
-        <h1 className="text-2xl lg:text-4xl text-center font-bold">
-          Monad Projects
-        </h1>
         <ProjectList
           className="mt-4 lg:mt-8"
           data={data}
